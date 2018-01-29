@@ -65,24 +65,3 @@ server.app.memcached = memcached;
 server.app.db = sequelize;
 server.app.Sequelize = Sequelize;
 
-//Load plugins and start server
-server.register([
-    Inert,
-    require('./main'),
-    require('./routes/skechers'),
-    require('./routes/lorealBox'),
-    require('./routes/newbalance'),
-    require('./routes/bingxuejie'),
-	require('./routes/friso')
-], (err) => {
-
-    if (err) {
-        throw err;
-    }
-
-    // Start the server
-    server.start((err) => {
-        console.log('Server running at:', server.info.uri);
-    });
-
-});
